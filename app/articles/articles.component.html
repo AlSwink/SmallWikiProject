@@ -1,0 +1,29 @@
+<div>
+  
+  <!--<button (click)="add()">
+    Add
+  </button>-->
+  <div *ngIf="addFlag">
+  	<label>Title:
+    	<input [(ngModel)]="newArticle.title" placeholder="title">
+  	</label>
+  	<br>
+	<label>Category:
+		<input [(ngModel)]="newArticle.category" placeholder="category">
+	</label>
+	<br>
+	<label>Article:
+		<textarea rows="10" cols="150" [(ngModel)]="newArticle.article" placeholder="article"></textarea>
+	</label>
+	<br>
+	<label>Tags (separate with comma):
+		<input [(ngModel)]="newArticle.tags" placeholder="tags">
+	</label>
+	<br>
+	<button (click)="save()">Save</button>
+   </div>
+<ul class="articles">
+	<li *ngFor="let article of articles">
+		<a routerLink="/detail/{{article.id}}">{{article.title}}</a>
+	</li>
+</ul>

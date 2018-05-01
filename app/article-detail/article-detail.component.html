@@ -1,0 +1,29 @@
+<div *ngIf="article">
+	
+	<div *ngIf="!editFlag">
+  		<h2>{{ article.title | uppercase }}</h2>
+  		<div [innerHTML]="article.article"></div>
+  		<p>Category:{{article.category}}   Tags:{{article.tags}}</p>
+  		<button (click)="goBack()">Back</button>
+  		<button (click)="edit()">Edit</button>
+	</div>
+	<div *ngIf="editFlag">
+		<label>Title:
+    		<input [(ngModel)]="article.title" placeholder="title">
+  		</label>
+  		<br>
+		<label>Category:
+			<input [(ngModel)]="article.category" placeholder="category">
+		</label>
+		<br>
+		<label>Article:
+			<textarea rows="10" cols="150" [(ngModel)]="article.article" placeholder="article"></textarea>
+		</label>
+		<br>
+		<label>Tags (separate with comma):
+			<input [(ngModel)]="article.tags" placeholder="tags">
+		</label>
+		<br>
+		<button (click)="save()">Save</button>
+	</div>
+</div>

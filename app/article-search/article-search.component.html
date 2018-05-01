@@ -1,0 +1,13 @@
+<div id="search-component">
+	<label>Search by Title</label><input #titleBox id="title-box" (keyup)="search(titleBox.value)" />
+	<!--<label>Search by Category</label><input #categoryBox id="category-box" (keyup)="search(categoryBox.value)" />-->
+	<!--<label>Search by Tag</label><input #tagBox id="tag-box" (keyup)="search(tagBox.value)" />-->
+	<ul class="search-result">
+    <li *ngFor="let article of article$ | async" >
+      <a routerLink="/detail/{{article.id}}">
+        {{article.title}}
+      </a>
+      <p>{{article.tags}}</p>
+    </li>
+  </ul>
+</div>
